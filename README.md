@@ -10,7 +10,10 @@ Bolsa 03 Processo Seletivo 011/2021 - Desenvolvedor React Native
 ---
 Descrição do App
 ---
+
 O aplicativo contém as 5 telas que foram pedidas inicialmente (Login, Cadastro, Nova Entrada, Nova Saída e Tela Principal), além de uma tela de **Perfil** que tomei liberdade para acrescentar. Além disso, tomei a liberdade para criar uma **Logo**, paleta de cores e uma *SplashScreen* para o app.
+
+Clique [aqui](https://www.youtube.com/watch?v=uH_MLSoBP_A) (vídeo de 40seg) para ver a demo do aplicativo.
 
 ### Funcionalidades:
 - Login
