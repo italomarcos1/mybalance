@@ -19,7 +19,7 @@ Clique [aqui](https://www.youtube.com/watch?v=uH_MLSoBP_A) (vídeo de 40seg) par
 - Login
 - Criar conta
 - Adicionar nova Entrada
-- Adicioanr nova Saída
+- Adicionar nova Saída
 - Atualização de Perfil
 - Upload de Avatar
 
