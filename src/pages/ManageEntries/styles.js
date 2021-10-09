@@ -13,12 +13,3 @@ export const Form = styled.View`
   margin-top: ${RFValue(40)}px;
   width: 85%;
 `;
-
-export const Title = styled.Text`
-  align-self: flex-start;
-  font-size: ${RFValue(26)}px;
-  margin-top: ${RFValue(20)}px;
-  color: ${({ theme }) => theme.colors.white};
-  font-family: 'RalewayBold';
-  padding-left: 7.5%;
-`;

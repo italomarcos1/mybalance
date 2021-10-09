@@ -2,11 +2,38 @@ import styled from 'styled-components/native';
 import { RFValue } from 'react-native-responsive-fontsize'
 import { Link } from 'react-router-native';
 
-export const Avatar = styled.Image`
-  width: ${RFValue(96)}px;
-  height: ${RFValue(96)}px;
-  border-radius: ${RFValue(48)}px;
+export const Container = styled.View`
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  padding-bottom: 60px;
+  background-color: ${({ theme }) => theme.colors.title};
+`;
+
+export const AvatarContainer = styled.View`
+  width: ${RFValue(120)}px;
+  height: ${RFValue(120)}px;
+  border-radius: ${RFValue(60)}px;
   margin-top: ${RFValue(48)}px;
+  position: relative;
+`;
+
+export const UpdatePictureIcon = styled.TouchableOpacity`
+  position: absolute;
+  bottom: ${RFValue(2.5)}px;
+  right: ${RFValue(2.5)}px;
+  width: ${RFValue(32)}px;
+  height: ${RFValue(32)}px;
+  border-radius: ${RFValue(16)}px;
+  background-color: ${({ theme }) => theme.colors.secondary};
+  align-items: center;
+  justify-content: center;
+`;
+
+export const Avatar = styled.Image`
+  width: ${RFValue(120)}px;
+  height: ${RFValue(120)}px;
+  border-radius: ${RFValue(60)}px;
 `;
 
 export const Input = styled.TextInput`
@@ -19,6 +46,7 @@ export const Input = styled.TextInput`
   padding: 0 10px 5px;
   width: 85%;
   text-align: center;
+  color: ${({ theme }) => theme.colors.white};
 `;
 
 export const Form = styled.View`

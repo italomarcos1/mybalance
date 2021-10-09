@@ -1,6 +1,5 @@
-import React, { useCallback, useMemo, useState } from 'react';
-import { FlatList, Keyboard } from 'react-native';
-import * as Yup from 'yup';
+import React from 'react';
+import { FlatList } from 'react-native';
 
 import {
   Container,
@@ -19,7 +18,6 @@ import {
 
 import PlusIcon from '~/assets/PlusIcon.svg'
 import LessIcon from '~/assets/LessIcon.svg'
-import { emptyFieldRegex } from '~/helpers';
 import Header from '~/components/HomeHeader';
 import { useProvider } from '~/context';
 

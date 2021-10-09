@@ -1,12 +1,11 @@
 import React, { useCallback, useMemo, useRef, useState } from 'react';
-import { Keyboard } from 'react-native';
+import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { useHistory } from 'react-router-native';
 import * as Yup from 'yup';
-import uuid from 'react-native-uuid';
 import { getDate, getMonth } from 'date-fns' 
 import Toast from 'react-native-tiny-toast'
 
-import { Container, Form, Title } from './styles';
+import { Container, Form } from './styles';
 
 import Input from '~/components/Input'
 import Button from '~/components/Button'
@@ -20,7 +19,7 @@ export default function AddEntry() {
   const [description, setDescription] = useState('');
   const [errors, setErrors] = useState([]);
 
-  const { manageEntry } = useProvider()
+  const { loading, user, manageEntry } = useProvider()
 
   const descriptionInputRef = useRef();
 
@@ -47,22 +46,24 @@ export default function AddEntry() {
       Keyboard.dismiss();
 
       const day = getDate(new Date());
-      const month = getMonth(new Date());
+      const month = getMonth(new Date()) + 1;
       
       const formattedDay = String(day).length === 1 ? `0${day}` : day;
       const formattedMonth = String(month).length === 1 ? `0${month}` : month;
       
       const date = `${formattedDay}/${formattedMonth}`
 
+      const { id: user_id } = user;
+
       const newEntry = {
-        id: uuid.v4(),
+        user_id,
         type: entryType === 'Entrada' ? 'in' : 'out',
         date,
         description,
         amount
       }
 
-      manageEntry(newEntry);
+      await manageEntry(newEntry);
 
       Toast.showSuccess(`${entryType} adicionada com sucesso.`)
 
@@ -70,7 +71,7 @@ export default function AddEntry() {
     } catch(err) {
       setErrors(err.inner.map(error => error.path));
     }
-  }, [amount, description, entryType, replace]);
+  }, [amount, description, entryType, user, replace]);
 
 
   return (
@@ -79,29 +80,38 @@ export default function AddEntry() {
         title={`Nova ${entryType}`}
         subtitle={`Adicione uma nova ${entryType.toLowerCase()}`}
       />
-      <Container>
-        <Form>
-          <Input
-            error={errors.includes('amount')}
-            keyboardType="phone-pad"
-            onSubmitEditing={() => descriptionInputRef.current.focus()}
-            placeholder="Valor (apenas números)"
-            returnKeyType="next"
-            value={amount}
-            onChangeText={setAmount}
-            />
-          <Input
-            error={errors.includes('description')}
-            onSubmitEditing={() => handleEntry()}
-            placeholder="Descrição"
-            ref={descriptionInputRef}
-            returnKeyType="send"
-            value={description}
-            onChangeText={setDescription}
-            />
-          <Button onPress={() => handleEntry()}>Salvar {entryType}</Button>
-        </Form>
-      </Container>
+      <TouchableWithoutFeedback
+        onPress={Keyboard.dismiss}
+      >
+        <Container>
+          <Form>
+            <Input
+              error={errors.includes('amount')}
+              keyboardType="phone-pad"
+              onSubmitEditing={() => descriptionInputRef.current.focus()}
+              placeholder="Valor (apenas números)"
+              returnKeyType="next"
+              value={amount}
+              onChangeText={setAmount}
+              />
+            <Input
+              error={errors.includes('description')}
+              onSubmitEditing={() => handleEntry()}
+              placeholder="Descrição"
+              ref={descriptionInputRef}
+              returnKeyType="send"
+              value={description}
+              onChangeText={setDescription}
+              />
+            <Button 
+              onPress={() => handleEntry()}
+              loading={loading}
+            >
+              Salvar {entryType}
+            </Button>
+          </Form>
+        </Container>
+      </TouchableWithoutFeedback>
     </>
   );
 }

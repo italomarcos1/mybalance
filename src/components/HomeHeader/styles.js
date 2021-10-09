@@ -1,5 +1,4 @@
 import { RFValue } from 'react-native-responsive-fontsize';
-import { Link } from 'react-router-native';
 import styled from 'styled-components/native';
 
 export const Container = styled.View`
@@ -12,7 +11,7 @@ export const Container = styled.View`
   padding: 0 7.5%;
 `;
 
-export const ProfileInfoContainer = styled(Link)`
+export const ProfileInfoContainer = styled.TouchableOpacity`
   flex-direction: row;
 `;
 

@@ -1,15 +1,22 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { TouchableOpacity } from 'react-native';
-import { Link, useHistory } from 'react-router-native';
+import { useHistory } from 'react-router-native';
 import PropTypes from 'prop-types';
 
 import { Container, Content, TitleContainer, Name, OpenProfileText } from './styles';
 
 import Back from '~/assets/Back.svg'
 import Exit from '~/assets/Exit.svg'
+import { useProvider } from '~/context';
 
 export default function GeneralHeader({ title, subtitle }) {
-  const { goBack, location } = useHistory()
+  const { replace, goBack, location } = useHistory()
+  const { signOut } = useProvider()
+
+  const handleSignOut = useCallback(() => {
+    signOut();
+    replace("/");
+  }, [replace]);
 
   return (
     <Container>
@@ -27,9 +34,11 @@ export default function GeneralHeader({ title, subtitle }) {
         </TitleContainer>
       </Content>
       {location.pathname === '/profile' &&
-        <Link to="/">
+        <TouchableOpacity
+          onPress={handleSignOut}
+        >
           <Exit />
-        </Link>
+        </TouchableOpacity>
       }
     </Container>
   );

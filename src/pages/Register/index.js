@@ -2,6 +2,7 @@ import React, { useCallback, useRef, useState } from 'react';
 import { Keyboard, TouchableWithoutFeedback } from 'react-native';
 import { useHistory } from 'react-router-native';
 import * as Yup from 'yup';
+import Toast from 'react-native-tiny-toast';
 
 import { Container, Form, RegisterButton, RegisterText } from './styles';
 
@@ -10,6 +11,7 @@ import Button from '~/components/Button'
 
 import Logo from '~/assets/Logo.svg'
 import { emptyFieldRegex } from '~/helpers';
+import { useProvider } from '~/context';
 
 export default function Register() {
   const [name, setName] = useState('');
@@ -17,6 +19,8 @@ export default function Register() {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [errors, setErrors] = useState([]);
+
+  const { handleSignUp, loading } = useProvider();
 
   const emailInputRef = useRef();
   const passwordInputRef = useRef();
@@ -35,20 +39,29 @@ export default function Register() {
         password: Yup.string()
                      .matches(emptyFieldRegex, 'password'),
         confirmPassword: Yup.string().when('password', (password, field) =>
-                     password ? field.oneOf([Yup.ref('password')]) : field),
+                     password ? field.oneOf([Yup.ref('password')]) : field,
+                     'confirmPassword'),
       })
       
       await schema.validate({ name, email, password, confirmPassword }, { abortEarly: false });
       setErrors([]);
 
+      await handleSignUp({ name, email, password })
+
       Keyboard.dismiss();
+      
+      Toast.show('Bem-vindo ao Meu Balanço!');
 
       replace('/home');
     } catch(err) {
-      setErrors(err.inner.map(error => error.path));
+      if(err instanceof Yup.ValidationError) {
+        setErrors(err.inner.map(error => error.path));
+        return;
+      }
+      
+      Toast.show(err.message)
     }
   }, [name, email, password, confirmPassword, replace]);
-
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -93,7 +106,12 @@ export default function Register() {
             value={confirmPassword}
             onChangeText={setConfirmPassword}
           />
-          <Button onPress={() => handleRegister()}>Cadastrar</Button>
+          <Button
+            onPress={() => handleRegister()}
+            loading={loading}
+          >
+            Cadastrar
+          </Button>
         </Form>
         <RegisterButton onPress={() => replace('/')}>
           <RegisterText>
