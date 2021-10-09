@@ -50,12 +50,6 @@ Você pode criar uma conta ou fazer login com os dados abaixo:
 **Senha**: 123456
 
 ---
-ERRATA
----
-
-Testando em alguns aparelhos, vi que o aplicativo pode falhar no login/cadastro, dependendo da sua versão do Android. Tenho que dizer que no meu aparelho (Moto G5) funcionou, e este [vídeo](https://www.youtube.com/watch?v=uH_MLSoBP_A) (40seg) é uma demo do aplicativo.
-
----
 Ferramentas Utilizadas
 ---
 
