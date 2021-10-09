@@ -31,7 +31,7 @@ Back-end do App
 ---
 O aplicativo se comunica com um servidor **back-end** construído com o framework [AdonisJS](https://adonisjs.com/), que está conectado ao banco relacional PostgreSQL em uma instância [Docker](https://docker.com), permitindo assim que os dados sejam persistidos.
 
-O repositório para o mesmo está nesse [link](github.com/italomarcos1/mybalance-api). O servidor roda em um cluster [EC2](https://aws.amazon.com/pt/ec2/) da AWS.
+O repositório para o mesmo está nesse [link](https://github.com/italomarcos1/mybalance-api). O servidor roda em um cluster [EC2](https://aws.amazon.com/pt/ec2/) da AWS.
 
 ---
 Execute a aplicação no seu dispositivo
