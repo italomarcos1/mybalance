@@ -56,6 +56,7 @@ export default function AddEntry() {
       const { id: user_id } = user;
 
       const newEntry = {
+        id: Date.now(),
         user_id,
         type: entryType === 'Entrada' ? 'in' : 'out',
         date,

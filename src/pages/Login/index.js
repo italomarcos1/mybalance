@@ -37,7 +37,7 @@ export default function Login() {
       await schema.validate({ email, password }, { abortEarly: false });
       setErrors([]);
 
-      await handleSignIn({ email, password })
+      // await handleSignIn({ email, password })
 
       Keyboard.dismiss();
 

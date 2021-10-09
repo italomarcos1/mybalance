@@ -3,12 +3,18 @@ import React, { createContext, useCallback, useContext, useMemo, useState } from
 import Toast from 'react-native-tiny-toast'
 
 import { api } from '~/services/api';
+import { fakeEntries } from '~/data';
 
 const Context = createContext({});
 
 export function Provider({ children }) {
-  const [user, setUser] = useState(null);
-  const [entries, setEntries] = useState([]);
+  const [user, setUser] = useState({
+    id: 1,
+    username: 'John Doe',
+    email: 'john@doe.com',
+    avatar: 'https://i.pinimg.com/originals/5a/dd/4d/5add4de2d2f1ec74e3bf4d9b3c575c35.png'
+  });
+  const [entries, setEntries] = useState(fakeEntries);
   
   const [loading, setLoading] = useState(false);
 
@@ -22,11 +28,11 @@ export function Provider({ children }) {
     return totalAmount;
   }, [entries]);
 
-  const manageEntry = useCallback(async(entry) => {
+  const manageEntry = useCallback(async(data) => {
     try {
       // dá push na API, retorna o Array e joga no setState
       setLoading(true)
-      const { data } = await api.post('/entry', entry)
+      // const { data } = await api.post('/entry', entry)
 
       setEntries(prevState => [data, ...prevState])
     } catch(err) {
@@ -121,6 +127,7 @@ export function Provider({ children }) {
         handleUpdateAvatar,
         handleUpdateProfile,
         signOut,
+        setUser,
         total
       }}
     >

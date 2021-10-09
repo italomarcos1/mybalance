@@ -46,7 +46,7 @@ export default function Register() {
       await schema.validate({ name, email, password, confirmPassword }, { abortEarly: false });
       setErrors([]);
 
-      await handleSignUp({ name, email, password })
+      // await handleSignUp({ name, email, password })
 
       Keyboard.dismiss();
       

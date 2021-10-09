@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { FlatList } from 'react-native';
 
 import {
@@ -23,6 +23,13 @@ import { useProvider } from '~/context';
 
 export default function Home() {
   const { entries, total } = useProvider()
+
+  console.log(total[0] !== '-')
+  console.log(String(total).charAt(0))
+
+  const balance = useMemo(() =>  
+    String(total).charAt(0) !== '-' ? 'in' : 'out'
+  , [total]);
 
   return (
     <>
@@ -52,7 +59,7 @@ export default function Home() {
               <TotalAmount>
                 SALDO
               </TotalAmount>
-              <EntryAmount type={total[0] !== '-' ? 'in' : 'out'}>{total}</EntryAmount>
+              <EntryAmount type={balance}>{total}</EntryAmount>
             </TotalAmountContainer>
           </>
             :

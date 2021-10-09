@@ -25,7 +25,7 @@ import { api } from '~/services/api';
 import Camera from '~/assets/Camera.svg'
 
 export default function Profile() {
-  const { loading, user, handleUpdateAvatar, handleUpdateProfile } = useProvider()
+  const { loading, setUser, user, handleUpdateAvatar, handleUpdateProfile } = useProvider()
   
   const [name, setName] = useState(() => user.username);
   const [errors, setErrors] = useState([]);
@@ -51,7 +51,10 @@ export default function Profile() {
       await schema.validate({ name }, { abortEarly: false });
       setErrors([]);
 
-      await handleUpdateProfile({ name })
+      // await handleUpdateProfile({ name })
+      setUser(prev => {
+        return {...prev, username: name}
+      });
 
       Keyboard.dismiss();
       
@@ -66,7 +69,7 @@ export default function Profile() {
       
       Toast.show(err.message)
     }
-  }, [name, replace]);
+  }, [name, replace, setUser]);
 
   const handleUploadImage = useCallback(async (photo) => {
    try {
@@ -83,7 +86,9 @@ export default function Profile() {
       
       data.append('id', user.id)
 
-      const { data: { url } } = await api.post("files", data);
+      // const { data: { url } } = await api.post("files", data);
+
+      const url = photo.uri;
 
       handleUpdateAvatar(url)
       Toast.showSuccess('Avatar atualizado com sucesso!')
@@ -122,9 +127,7 @@ export default function Profile() {
           <AvatarContainer>
             <Avatar
               source={{
-                uri: !!user.avatar ?
-                user.avatar :
-                'https://i.pinimg.com/originals/5a/dd/4d/5add4de2d2f1ec74e3bf4d9b3c575c35.png'
+                uri: user.avatar
               }}
             />
             <UpdatePictureIcon 
