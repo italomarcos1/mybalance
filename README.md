@@ -49,6 +49,8 @@ Você pode criar uma conta ou fazer login com os dados abaixo:
 **E-mail**: john@doe.com
 **Senha**: 123456
 
+**Importante**: testei o APK e está dando erro em alguns aparelhos (no meu funciona e não descobri a razão). Nesse caso baixe o APK **MyBalance [ESTÁTICO]** na raiz dessa pasta, ele está funcionando sem backend, completamente estático. Essa versão estática é uma **versão anterior** do app, de quando ainda não havia backend e funciona sem problemas.
+
 ---
 Ferramentas Utilizadas
 ---
