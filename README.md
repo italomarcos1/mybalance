@@ -1,6 +1,6 @@
 <!-- ![MeuBalanço](Logo.png) -->
 <div style="display:flex; align-items:center; justify-content:center; text-align:center">
-  <img src="/Logo.png" />
+  <img src="/Logo(1).png" />
 </div>
 
 ---
