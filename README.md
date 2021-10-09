@@ -36,6 +36,9 @@ O repositório para o mesmo está nesse [link](github.com/italomarcos1/mybalance
 ---
 Execute a aplicação no seu dispositivo
 ---
+
+É recomendado que execute o aplicativo em **Desenvolvimento**, que consiste em baixar esse repositório, instalar as dependências com **yarn** ou **npm install** e executar. Aqui está um [tutorial](https://react-native.rocketseat.dev/) de configuração do ambiente Android.
+
 Baixe o APK (na raiz desta pasta, ou neste [link](https://drive.google.com/file/d/1V7LQ_nHRzhMZblCwUPWUPAVB5Ym5j-TM/view?usp=sharing)) e execute-o no seu dispositivo **Android** (versão 8.1 ou superior). Por padrão, os dispositivos Android não permitem a instalação de apps de fora da *Play Store*. Portanto, você deve ir nas **Configurações** do seu dispositivo para permitir a instalação de aplicativos de fontes externas.
 
 Você pode criar uma conta ou fazer login com os dados abaixo:
@@ -43,7 +46,11 @@ Você pode criar uma conta ou fazer login com os dados abaixo:
 **E-mail**: john@doe.com
 **Senha**: 123456
 
-Para cadastrar as entradas/saídas, lembre-se do detalhe dito acima: **EVITAR** palavras que começam com acento (ou digitá-la sem acento).
+---
+ERRATA
+---
+
+Testando em alguns aparelhos, vi que o aplicativo pode falhar no login/cadastro, dependendo da sua versão do Android. Tenho que dizer que no meu aparelho (Moto G5) funcionou, e este [vídeo](https://www.youtube.com/watch?v=uH_MLSoBP_A) (40seg) é uma demo do aplicativo.
 
 ---
 Ferramentas Utilizadas
