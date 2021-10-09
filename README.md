@@ -1,4 +1,7 @@
-![MeuBalanço](Logo.png)
+<!-- ![MeuBalanço](Logo.png) -->
+<div style="text-align:center">
+  <img src="/Logo.png" />
+</div>
 
 ---
 Bolsa 03 Processo Seletivo 011/2021 para Desenvolvedor Mobile - React Native

@@ -24,6 +24,8 @@ import { useProvider } from '~/context';
 export default function Home() {
   const { entries, total } = useProvider()
 
+  console.log('total', isNaN(+'-50600'))
+
   return (
     <>
       <Header />
@@ -52,7 +54,7 @@ export default function Home() {
               <TotalAmount>
                 SALDO
               </TotalAmount>
-              <EntryAmount type="in">{total}</EntryAmount>
+              <EntryAmount type={total[0] !== '-'}>{total}</EntryAmount>
             </TotalAmountContainer>
           </>
             :
