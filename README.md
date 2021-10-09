@@ -36,7 +36,7 @@ O repositório para o mesmo está nesse [link](github.com/italomarcos1/mybalance
 ---
 Execute a aplicação no seu dispositivo
 ---
-Baixe o APK e execute no seu dispositivo **Android** (versão 8.1 ou superior).
+Baixe o APK (na raiz desta pasta, ou neste [link](https://drive.google.com/file/d/1V7LQ_nHRzhMZblCwUPWUPAVB5Ym5j-TM/view?usp=sharing)) e execute-o no seu dispositivo **Android** (versão 8.1 ou superior). Por padrão, os dispositivos Android não permitem a instalação de apps de fora da *Play Store*. Portanto, você deve ir nas **Configurações** do seu dispositivo para permitir a instalação de aplicativos de fontes externas.
 
 Você pode criar uma conta ou fazer login com os dados abaixo:
 
@@ -44,14 +44,6 @@ Você pode criar uma conta ou fazer login com os dados abaixo:
 **Senha**: 123456
 
 Para cadastrar as entradas/saídas, lembre-se do detalhe dito acima: **EVITAR** palavras que começam com acento (ou digitá-la sem acento).
-
----
-Demonstração do formulário sendo preenchido
----
-
-![demo](./take1.gif)
-
-Para ver em uma resolução melhor, clique [aqui](https://youtu.be/3Eno1KbqFtc), onde mostro todas as funcionalidades da aplicação. (vídeo de 1min29seg)
 
 ---
 Ferramentas Utilizadas
