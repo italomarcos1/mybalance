@@ -45,7 +45,6 @@ export default function Login() {
 
       replace('/home');
     } catch(err) {
-      console.log(typeof err)
       if(err instanceof Yup.ValidationError) {
         setErrors(err.inner.map(error => error.path));
         return;

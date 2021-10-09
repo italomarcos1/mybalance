@@ -54,7 +54,7 @@ export function Provider({ children }) {
       });
 
       setUser(user);
-      setEntries(entries)
+      setEntries(entries.reverse())
     } catch(err) {
       throw new Error(err.response.data.message)
     } finally {
@@ -88,14 +88,10 @@ export function Provider({ children }) {
       setLoading(true)
       const { name: username } = data;
 
-      console.log('d', data)
-
       const { data: updatedInfo } = await api.put('/update', {
         id: user.id,
         username,
       });
-
-      console.log('updatedInfo', updatedInfo)
 
       setUser(prevState => {
         return { ...prevState, ...updatedInfo }

@@ -87,10 +87,7 @@ export default function Profile() {
 
       handleUpdateAvatar(url)
       Toast.showSuccess('Avatar atualizado com sucesso!')
-    } catch(err) {
-      console.log('err', err);
-      console.log('err', err.response.status);
-      
+    } catch(err) {      
       if(err.response.status === 413){
         Toast.show('Envie uma imagem mais leve.')
         return

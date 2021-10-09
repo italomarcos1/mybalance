@@ -4,25 +4,27 @@
 </div>
 
 ---
-Bolsa 03 Processo Seletivo 011/2021 para Desenvolvedor Mobile - React Native
+Bolsa 03 Processo Seletivo 011/2021 - Desenvolvedor React Native
 ---
 
 ---
 Descrição do App
 ---
-O aplicativo contém as 5 telas que foram pedidas inicialmente (Login, Cadastro, Nova Entrada, Nova Saída e Tela Principal), além de uma tela de **Perfil**, que tomei liberdade para acrescentar. Além disso, tomei a liberdade para criar logo, paleta de cores e uma SplashScreen para o app.
+O aplicativo contém as 5 telas que foram pedidas inicialmente (Login, Cadastro, Nova Entrada, Nova Saída e Tela Principal), além de uma tela de **Perfil** que tomei liberdade para acrescentar. Além disso, tomei a liberdade para criar uma **Logo**, paleta de cores e uma *SplashScreen* para o app.
 
 ### Funcionalidades:
 - Login
-- Cadastro
-- Cadastro de Entrada
-- Cadastro de Saída
+- Criar conta
+- Adicionar nova Entrada
+- Adicioanr nova Saída
 - Atualização de Perfil
 - Upload de Avatar
 
-Os campos de todos os formulários contém **validação**, não é possível deixar o campo vazio e eles devem seguir o formato. No e-mail deve ser informado um endereço de e-mail válido, no cadastro de entrada/saída deve ser informado apenas números, etc. As validações foram aplicadas com a biblioteca [Yup](https://github.com/jquense/yup).
+Os campos dos formulários contém **validação**, não é possível deixar o campo vazio e eles devem seguir o formato. No e-mail deve ser informado um endereço de e-mail válido, no cadastro de entrada/saída deve ser informado apenas números, etc.
 
-**DETALHE IMPORTANTE**: Evitar usar letras com **acento**. Notei esse pequeno erro no final do desenvolvimento do projeto.
+As validações foram aplicadas com a biblioteca [Yup](https://github.com/jquense/yup).
+
+**DETALHE IMPORTANTE**: Quando a primeira letra da palavra tem um **acento**, dá erro na validação. Notei esse pequeno erro no final do desenvolvimento do projeto.
 
 ---
 Back-end do App
@@ -30,16 +32,18 @@ Back-end do App
 O aplicativo se comunica com um servidor **back-end** construído com o framework [AdonisJS](https://adonisjs.com/), que está conectado ao banco relacional PostgreSQL em uma instância [Docker](https://docker.com), permitindo assim que os dados sejam persistidos.
 
 O repositório para o mesmo está nesse [link](github.com/italomarcos1/mybalance-api). O servidor roda em um cluster [EC2](https://aws.amazon.com/pt/ec2/) da AWS.
+
 ---
 Execute a aplicação no seu dispositivo
 ---
 Baixe o APK e execute no seu dispositivo **Android** (versão 8.1 ou superior).
 
 Você pode criar uma conta ou fazer login com os dados abaixo:
+
 **E-mail**: john@doe.com
 **Senha**: 123456
 
-Para cadastrar as entradas/saídas, lembre-se do detalhe dito acima: **EVITAR** letras com acento, etc.
+Para cadastrar as entradas/saídas, lembre-se do detalhe dito acima: **EVITAR** palavras que começam com acento (ou digitá-la sem acento).
 
 ---
 Demonstração do formulário sendo preenchido

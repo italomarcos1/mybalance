@@ -1,5 +1,6 @@
-import React from 'react';
-import { Link, useHistory } from 'react-router-native';
+import React, { useCallback } from 'react';
+import { TouchableOpacity } from 'react-native';
+import { useHistory } from 'react-router-native';
 
 import { Container, ProfileInfoContainer,OpenProfileContainer, Avatar, Name, OpenProfileText } from './styles';
 
@@ -7,8 +8,13 @@ import Exit from '~/assets/Exit.svg'
 import { useProvider } from '~/context';
 
 export default function Header() {
-  const { user } = useProvider()
+  const { user, signOut } = useProvider()
   const { replace } = useHistory()
+
+  const handleSignOut = useCallback(() => {
+    signOut();
+    replace("/");
+  }, [replace]);
 
   return (
     <Container>
@@ -33,9 +39,11 @@ export default function Header() {
           </OpenProfileContainer>
         </>
       </ProfileInfoContainer>
-      <Link to="/">
+      <TouchableOpacity
+        onPress={handleSignOut}
+      >
         <Exit />
-      </Link>
+      </TouchableOpacity>
     </Container>
   );
 }

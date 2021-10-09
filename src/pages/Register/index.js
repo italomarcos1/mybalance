@@ -91,7 +91,7 @@ export default function Register() {
             onSubmitEditing={() => confirmPasswordInputRef.current.focus()}
             placeholder="Senha"
             ref={passwordInputRef}
-            returnKeyType="send"
+            returnKeyType="next"
             secureTextEntry
             value={password}
             onChangeText={setPassword}
@@ -101,7 +101,7 @@ export default function Register() {
             onSubmitEditing={handleRegister}
             placeholder="Confirme a senha"
             ref={confirmPasswordInputRef}
-            returnKeyType="next"
+            returnKeyType="send"
             secureTextEntry
             value={confirmPassword}
             onChangeText={setConfirmPassword}
